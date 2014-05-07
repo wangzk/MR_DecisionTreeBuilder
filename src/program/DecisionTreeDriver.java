@@ -352,7 +352,7 @@ public class DecisionTreeDriver {
 					infoAD += ADSize.intValue() * infoDj;
 					double p = (double) ADSize.intValue()
 							/ (double) DSize.intValue();
-					System.out.println("FIND_BEST[" + aid + "]" + p);
+					//System.out.println("FIND_BEST[" + aid + "]" + p);
 					splitInfoAD += -p * Math.log(p)/Math.log(2.0);
 				}
 			}
