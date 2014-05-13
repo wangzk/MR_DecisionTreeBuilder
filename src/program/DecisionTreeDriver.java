@@ -34,7 +34,7 @@ public class DecisionTreeDriver {
   // 目前程序只能处理离散属性值
   // 这里面不包含Label属性
   static List<List<String>> attributeRange;
-  // 类标签取值范围，其值等于attributeRange的最后一个列表
+  // 类标签取值范围
   static List<String> labelRange;
 
   // 记录决策树模型，即所有确定的决策规则
@@ -61,8 +61,9 @@ public class DecisionTreeDriver {
 
     // 载入属性元信息
     loadAttributeRange(attributesMetaInfoPath);
-
+    // 当前层的划分规则队列
     Queue<datatype.Rule> currentQueue = new LinkedList<datatype.Rule>();
+    // 下一层的划分规则队列
     Queue<datatype.Rule> newQueue = new LinkedList<datatype.Rule>();
 
     // 是否包含Root节点，用于甄别是否是初始执行
@@ -158,6 +159,8 @@ public class DecisionTreeDriver {
       String nodeRuleQueueFilePath, String statisticFilePath, int itCount)
       throws Exception {
     conf = new Configuration();
+    // 配置全局队列
+    // 将规则文件加入Cache
     DistributedCache
         .addCacheFile(new Path(nodeRuleQueueFilePath).toUri(), conf);
     System.err.println("NODE_RULE_URI:"
@@ -180,8 +183,7 @@ public class DecisionTreeDriver {
     job.setOutputFormatClass(TextOutputFormat.class);
     FileInputFormat.addInputPath(job, new Path(dataSetPath));
     FileOutputFormat.setOutputPath(job, new Path(statisticFilePath));
-    // 配置全局队列
-    // 将规则文件加入Cache
+    
     job.waitForCompletion(true);
   }
 

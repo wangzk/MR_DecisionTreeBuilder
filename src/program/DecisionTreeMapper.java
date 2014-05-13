@@ -28,10 +28,6 @@ public class DecisionTreeMapper extends Mapper<Object, Text, Text, IntWritable> 
         DistributedCache.getLocalCacheFiles(context.getConfiguration());
     // 因为只有一个文件，所以这个文件应该是Queue
     assert (filePath.length == 1);
-    System.out.println("FILEPATH:" + filePath + ","
-        + context.getConfiguration());
-    System.err.println("Hello:"
-        + context.getConfiguration().get("RuleQueuePath"));
     // 载入条件队列信息
     loadQueueFile(filePath[0], context.getConfiguration());
   }
@@ -39,7 +35,7 @@ public class DecisionTreeMapper extends Mapper<Object, Text, Text, IntWritable> 
   /** 从filePath中读取Queue文件 */
   private void loadQueueFile(Path filePath, Configuration conf)
       throws IOException {
-    System.err.println("QUEUE_FILE_PATH=" + filePath.toString());
+    //System.err.println("QUEUE_FILE_PATH=" + filePath.toString());
     Scanner scanner = new Scanner(new File(filePath.toString()));
     while (scanner.hasNextLine()) {
       String line = scanner.nextLine();
