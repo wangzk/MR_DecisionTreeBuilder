@@ -14,8 +14,10 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 /**
- * 决策树算法的Mapper类。 输入：1.训练数据集D D是文本文件，每一行是一个训练样本，各个属性字段之间用逗号分隔。
- * 2.条件集队列文件Q（通过DistributedCache方式传入） 输出：<key,value>对，其中key是一个复合类型， 具体为key =
+ * 决策树算法的Mapper类。 
+ * 输入：1.训练数据集D D是文本文件，每一行是一个训练样本，各个属性字段之间用逗号分隔。
+ *       2.条件集队列文件Q（通过DistributedCache方式传入）
+ * 输出：<key,value>对，其中key是一个复合类型， 具体为key =
  * <条件号#属性号，属性值，元素类标号> value = 1.
  */
 public class DecisionTreeMapper extends Mapper<Object, Text, Text, IntWritable> {
