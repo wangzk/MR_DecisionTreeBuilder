@@ -20,7 +20,6 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
-import org.apache.hadoop.mapreduce.lib.reduce.IntSumReducer;
 
 import datatype.NodeStatisticInfo;
 import datatype.Rule;
@@ -175,7 +174,7 @@ public class DecisionTreeDriver {
     // 设置Reduce阶段配置
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(IntWritable.class);
-    job.setReducerClass(IntSumReducer.class);
+    job.setReducerClass(DecisionTreeReducer.class);
     // 设置Reduce节点的个数，这个可以根据实际情况调整
     job.setNumReduceTasks(4);
     // 配置输入输出

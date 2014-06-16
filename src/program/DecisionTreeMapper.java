@@ -35,7 +35,7 @@ public class DecisionTreeMapper extends Mapper<Object, Text, Text, IntWritable> 
   /** 从filePath中读取Queue文件 */
   private void loadQueueFile(Path filePath, Configuration conf)
       throws IOException {
-    //System.err.println("QUEUE_FILE_PATH=" + filePath.toString());
+    // System.err.println("QUEUE_FILE_PATH=" + filePath.toString());
     Scanner scanner = new Scanner(new File(filePath.toString()));
     while (scanner.hasNextLine()) {
       String line = scanner.nextLine();
