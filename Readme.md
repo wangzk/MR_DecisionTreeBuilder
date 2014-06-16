@@ -12,14 +12,14 @@
          Rule.java 决策树节点规则描述
          StatisticRecord.java 一条统计信息
       program - 主要程序
-         DecisionTreeDriver.java 驱动程序
-         DecisionTreeMapper.java Map定义
+         DecisionTreeDriver.java 驱动类
+         DecisionTreeMapper.java Mapper类
+         DecisionTreeReducer.java Reducer类
     test-data - 书上的例子数据
          names 属性值域信息
          data  训练集数据
          model 示例模型输出
     run.sh - 示例运行脚本
-    dtree.jar - 示例预编译文件
 
 ## 使用方法
 
